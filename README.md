@@ -8,6 +8,14 @@ Webmonitor is docker image of a Webpage writen in Django for monitoring Webpages
 -View the failure history for each monitored website
 -The ability to use the django admin to manage the data that the application collects.
 
+## API
+
+Webpages
+localhost:8000/api/webpage/  - GET/POST/UPDATE/DELETE (List view , Detail view) 
+
+Failures
+localhost:8000/api/failure/  - GET/POST/UPDATE/DELETE (List view , Detail view)  
+
 ## Installation (windows)
 
 (You need to have a docker-desktop)
