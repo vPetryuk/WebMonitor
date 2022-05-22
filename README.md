@@ -2,6 +2,12 @@
 
 Webmonitor is docker image of a Webpage writen in Django for monitoring Webpages
 
+## Functionality
+
+-Define, edit, delete a monitored website,
+-View the failure history for each monitored website
+-The ability to use the django admin to manage the data that the application collects.
+
 ## Installation (windows)
 
 (You need to have a docker-desktop)
@@ -15,8 +21,11 @@ docker-compose up
  In CLI 
 
 ```bash
-docker exec -ti django-webmonitor-container python manage.py crontab add     
+python manage.py crontab add 
+python manage.py migrate
+python manage.py createsuperuser
 ```
+
 
 ## Testing 
 ```bash
