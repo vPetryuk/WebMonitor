@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  my profile
+{% endblock title %}
+
+{% block content %}
+{% url 'monitor:AddWebPage' as path_to_add_webpage %}
+<div class="ui segment">
+  
+    <div class="ui three column grid">
+        {% if WebPages %}
+        {% for obj in WebPages %}
+  
+          <div class="column">
+  
+            <div class="ui fluid card " style="position: relative;top: 0; left: 0;">
+  
+              
+                <div class="image outer ">
+  
+                  <img style="height: 350px;width: 100%; object-fit: cover; position: relative;top: 0;left: 0;" src={% static "images/IsNotWorking.png" %}>
+  
+                </div>
+              </a>
+  
+              <div class="content">
+                <div class="ui three column pagged grid center aligned">
+                  <div class="column">
+                    <a class="ui button bwhite-lg" href="{% url 'monitor:webpage-update' obj.pk %}">
+                      Update
+                    </a>
+                  </div>
+                  <div class="column">
+                    <a class="ui button bwhite-lg ">
+                      Detais
+                    </a>
+                  </div>
+                  <div class="column">
+                    <a class="ui button bwhite-lg" href="{% url 'monitor:webpage-delete' obj.pk %}">
+                      Remove
+                    </a>
+                  </div>
+                </div>
+                <div class="ui divider"></div>
+  
+                <div class="content">
+                  <div class="header">{{obj.WebPageName}}</div>
+                  <div class="meta">
+                    <span class="date">{{obj.link}}</span>
+                  </div>
+                  <div class="description">
+                    {{obj.description}}
+                  </div>
+                </div>
+  
+               
+              </div>
+              
+            </div>
+  
+          </div>
+          
+        {% endfor %}
+        {% else %}
+        <h1 class="ui header">No broken webpage found</h1>
+        {% endif %}
+      </div>
+  
+    </div>
+</div>
+{% endblock content %}

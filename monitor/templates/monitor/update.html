@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load materializecss %}
+{% block title %}
+update WebPage
+{% endblock title %}
+{% block css %}
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+        integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8=" crossorigin="anonymous"/>
+{% endblock css %}
+{% block content %}
+    <div class='ui segment' style="width: 50%; margin:  20px auto 0px auto; text-align: center;">
+        <h1>Update Website</h1>
+        <form action="" method="POST" class="ui form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="ui small header">Name of website</div>
+           <p> {{ form.WebPageName}}</p>
+           <div class="ui small header">Link (format: https://www.youtube.com/)</div>
+           <p> {{ form.link}} </p>
+           <div class="ui small header">Description</div>
+           <p> {{ form.description}}</p>
+           <div class="ui small header">Choose Frequency of checking website</div>
+           <p> {{ form.FrequencyOfChecking }}</p</>
+            <button type='submit' class="ui button primary mt-5">Update</button>
+        </form>
+    </div>
+{% endblock content %}s

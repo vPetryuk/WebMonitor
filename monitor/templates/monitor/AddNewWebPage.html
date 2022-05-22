@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  add new post
+{% endblock title %}
+
+{% block content %}
+  <div class="ui segment " style="width: 1000px;margin: 0 auto;">
+
+    <div class="ui header">
+      <h1 class="ui aligned center  header massive">Add new Website</h1>
+      <div class="ui fitted divider"></div>
+    </div>
+
+    <div class="ui grid">
+      <div class="column">
+        <div class='ui block'>
+
+ <form action="" method="POST" class="ui form" enctype='multipart/form-data'>
+
+          {% csrf_token %}
+          <h3 style="margin: 10px 0 0 0;">Name of website</h3>
+          {{ form.WebPageName }}
+          <h3 style="margin: 10px 0 0 0;">Link (format: https://www.youtube.com/)</h3>
+          {{ form.link }}
+   <h3 style="margin: 10px 0 0 0;">Description</h3>
+          {{ form.description }}
+          <div class="ui small header">Choose Frequency of checking website</div>
+           <p> {{ form.FrequencyOfChecking }}</p</>
+          <div class="actions" >
+            <button type='submit' style=" width: 500px;" class="ui positive right labeled icon button ">
+              Add new Website
+
+            </button>
+          </div>
+
+          </form>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+{% endblock content %}

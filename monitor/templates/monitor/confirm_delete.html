@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+delete post
+{% endblock title %}
+
+{% block content %}
+
+
+        <div class="ui segment " style="width: 50%; margin:  20px auto 0px auto; text-align: center;">
+
+            <form  action="" method="POST">
+                {% csrf_token %}
+              <br/>
+              <h2>Are you sure you want remove this Website?</h2>
+              <br/>
+               <button type="button" class="ui secondary button massive labeled icon " onClick="javascript:history.go(-1);"><i class="left arrow icon"></i>Back</button>
+                <button class="ui button negative massive centered right labeled icon"    type='submit'><i class=" trash alternate icon"></i>Remove</button>
+
+            </form>
+        </div>
+
+{% endblock content %}

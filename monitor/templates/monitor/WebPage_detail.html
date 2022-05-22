@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}WebPage{% endblock title %}
+
+{% block content %}
+
+
+  <div class="ui segment">
+
+    
+    <div class="ui grid">
+      <div class='row'>
+        <div class='eight wide column'>
+          
+
+            <div class="image outer ">
+                {% if page.IsWorking %} 
+                <img style="height: 450px;width: 100%; object-fit: cover; position: relative;top: 0;left: 0;" src={% static "images/IsWorking.png" %}>
+                {% else %}
+                <img style="height: 450px;width: 100%; object-fit: cover; position: relative;top: 0;left: 0;" src={% static "images/IsNotWorking.png" %}>
+                {% endif %}
+              </div>
+
+          <div class="ui centered ">
+            <div class="content">
+
+              <div class="ui header centered mt-5"><h1>{{ page.WebPageName }}</h1></div>
+
+              
+            </div>
+          </div>
+        </div>
+        <div class='eight wide column'>
+
+          <div class="ui segment">
+            <div class="content">
+
+              <div class="header"><h1>{{ page.WebPageName }}</h1></div>
+
+              <div class="description">
+                <div class="header">
+                    <h3>Description</h3>
+                  </div>
+                <h4>{{ page.description }}</h4>
+                <div class="header">
+                  <h2>Link</h2>
+                </div>
+
+                <h3>{{page.link }}</h3>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+      <div class="ui divider"></div>
+      <div class="ui header centered"> Failures</div>
+
+      <div class="ui three column grid">
+       {% if QFailures %}
+      {% for obj in QFailures %}
+        <div class="column">
+          <div class="ui fluid card ">
+            <div class="image ">
+              <img style="height: 350px;width: 100%; object-fit: cover;" src={% static "images/Failure.png" %}>
+            </div>
+            <div class="content">
+              <a class="header">{{obj.PageName}}</a>
+              <div class="meta">
+                <span class="date">{{obj.FailureTimeBegin}} - {{obj.FailureTimeFixed}}</span>
+                <div class="description">
+                  Status code - {{obj.StatusCode}}
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% else %}
+      <h1 class="ui header " style="margin: 0 auto;">No failure history</h1>
+      {% endif %}
+     
+      
+
+    </div>
+  </div>
+
+{% endblock content %}
